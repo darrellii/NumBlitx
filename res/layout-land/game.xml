@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/player2" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="75.0">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="50.0">
+            <Button android:id="@id/b200" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b201" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b202" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b203" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="50.0">
+            <Button android:id="@id/b210" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b211" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b212" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b213" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/play3" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="75.0">
+        <LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="33.0">
+            <Button android:id="@id/b300" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b301" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b302" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b303" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="33.0">
+            <Button android:id="@id/b310" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b311" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b312" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b313" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="33.0">
+            <Button android:id="@id/b320" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b321" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b322" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+            <Button android:id="@id/b323" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/player4" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="75.0">
+        <LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="33.0">
+            <Button android:id="@id/b400" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b401" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b402" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b403" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b404" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="33.0">
+            <Button android:id="@id/b410" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b411" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b412" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b413" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b414" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="33.0">
+            <Button android:id="@id/b420" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b421" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b422" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b423" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+            <Button android:id="@id/b424" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/LLtvadds" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/tvgamebrick" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="3 Brick Piles" android:layout_weight="60.0" />
+        <TextView android:id="@id/tvgamelong" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Long Pile" android:layout_weight="20.0" />
+        <TextView android:id="@id/tvgameshort" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Short Pile" android:layout_weight="20.0" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/lplayerpiles" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="25.0">
+        <Button android:id="@id/bbrick0" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+        <Button android:id="@id/bbrick1" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+        <Button android:id="@id/bbrick2" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0">
+            <Button android:id="@id/blongp" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="100.0" />
+            <Button android:id="@id/bstuck" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="Stuck" android:layout_weight="20.0" />
+        </LinearLayout>
+        <Button android:id="@id/bshortp" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="20.0" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="90.0">
+        <TextView android:id="@id/tvplayer0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        <TextView android:id="@id/tvplayer1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        <TextView android:id="@id/tvplayer2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        <TextView android:id="@id/tvplayer3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        <TextView android:id="@id/tvwin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="right" android:orientation="horizontal" android:id="@id/statbottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="15.0">
+        <Button android:id="@id/bdone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Done" />
+        <TextView android:id="@id/tvyou" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+    </LinearLayout>
+</LinearLayout>
