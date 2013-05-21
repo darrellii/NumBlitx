@@ -57,19 +57,27 @@ public class NumPlayer extends Activity
       break;
     case 2131099723:
       this.num = 4;
+      ((MyReferences)getApplication()).setNumplayers(this.num);
+      ((MyReferences)getApplication()).setLevel(this.lvl);
+      startActivity(new Intent("app.dj.GAME"));
       break;
     case 2131099725:
       this.num = 3;
+      ((MyReferences)getApplication()).setNumplayers(this.num);
+      ((MyReferences)getApplication()).setLevel(this.lvl);
+      startActivity(new Intent("app.dj.GAME"));
       break;
     case 2131099727:
       this.num = 2;
+      ((MyReferences)getApplication()).setNumplayers(this.num);
+      ((MyReferences)getApplication()).setLevel(this.lvl);
+      startActivity(new Intent("app.dj.GAME"));
+      break;
     case 2131099722:
     case 2131099724:
     case 2131099726:
     }
-    ((MyReferences)getApplication()).setNumplayers(this.num);
-    ((MyReferences)getApplication()).setLevel(this.lvl);
-    startActivity(new Intent("app.dj.GAME"));
+    
   }
 
   public void onCreate(Bundle paramBundle)
@@ -79,9 +87,9 @@ public class NumPlayer extends Activity
     this.lvl = 5;
     this.grav[0] = 15.0F;
     this.grav[1] = 85.0F;
-    this.ad = new AdView(this, AdSize.BANNER, "a150c3f58ddb76e");
-    ((LinearLayout)findViewById(2131099726)).addView(this.ad);
-    this.ad.loadAd(new AdRequest());
+//    this.ad = new AdView(this, AdSize.BANNER, "a150c3f58ddb76e");
+//    ((LinearLayout)findViewById(2131099726)).addView(this.ad);
+//    this.ad.loadAd(new AdRequest());
     this.player2 = ((Button)findViewById(2131099727));
     this.player3 = ((Button)findViewById(2131099725));
     this.player4 = ((Button)findViewById(2131099723));

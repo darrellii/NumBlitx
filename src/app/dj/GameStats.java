@@ -48,7 +48,7 @@ public class GameStats extends Activity
       if (((MyReferences)getApplication()).getPlaya(k) == null)
         continue;
       m = ((MyReferences)getApplication()).getPlaya(k).getscore() - ((MyReferences)getApplication()).getPlaya(k).getshort().pntLeft();
-      this.tvs[k].setText(m);
+      this.tvs[k].setText(Integer.toString(m));
       if (m < j)
         continue;
       j = m;
@@ -94,9 +94,9 @@ public class GameStats extends Activity
     else
       this.you.setText("YOU WON!!!");
     this.done.getRootView().setBackgroundColor(Color.rgb(207, 207, 207));
-    this.ad = new AdView(this, AdSize.BANNER, "a150c3f58ddb76e");
-    ((LinearLayout)findViewById(2131099709)).addView(this.ad);
-    this.ad.loadAd(new AdRequest());
+//    this.ad = new AdView(this, AdSize.BANNER, "a150c3f58ddb76e");
+//    ((LinearLayout)findViewById(2131099709)).addView(this.ad);
+//    this.ad.loadAd(new AdRequest());
   }
 
   public void onDestroy()

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.PaintDrawable;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.View;
@@ -20,7 +21,7 @@ public class Game extends Activity implements OnClickListener {
 	private Button brick0;
 	private Button brick1;
 	private Button brick2;
-	private Boolean firstclick;
+	private boolean firstclick;
 	private Button firstclicked;
 	private boolean gameover;
 	private Button longp;
@@ -58,7 +59,7 @@ public class Game extends Activity implements OnClickListener {
 				this.thisp);
 	}
 
-	private boolean gameend() {
+	private synchronized boolean gameend() {
 		int i = 0;
 		if ((this.ai[0].getgameend()) || (this.ai[0].getgameend())
 				|| (this.ai[0].getgameend()) || (this.gameover))
@@ -88,11 +89,11 @@ public class Game extends Activity implements OnClickListener {
 				this.bpiles[i][j] = ((Button) findViewById(k));
 				this.bpiles[i][j].setOnClickListener(this);
 			}
-		this.longp = ((Button) findViewById(2131099701));
-		this.shortp = ((Button) findViewById(2131099703));
-		this.brick0 = ((Button) findViewById(2131099698));
-		this.brick1 = ((Button) findViewById(2131099699));
-		this.brick2 = ((Button) findViewById(2131099700));
+		this.longp = ((Button) findViewById(app.dj.R.id.blongp));
+		this.shortp = ((Button) findViewById(app.dj.R.id.bshortp));
+		this.brick0 = ((Button) findViewById(app.dj.R.id.bbrick0));
+		this.brick1 = ((Button) findViewById(app.dj.R.id.bbrick1));
+		this.brick2 = ((Button) findViewById(app.dj.R.id.bbrick2));
 		this.longp.setOnClickListener(this);
 		this.shortp.setOnClickListener(this);
 		this.brick0.setOnClickListener(this);
@@ -159,41 +160,88 @@ public class Game extends Activity implements OnClickListener {
 		return i;
 	}
 
-	private void onsecondclick(View firstClick, View secondClick) {
+	private synchronized void onsecondclick(View firstClick, View secondClick) {
+		
+		if(firstClick == null){
+			this.firstclick = true;
+			onClick(secondClick);
+			return;
+		}
+		
 		Deck.Card localCard = null;
 		((Button) firstClick).setTextSize(this.textsize);
 		switch (firstClick.getId()) {
-		case 2131099698:
+		case app.dj.R.id.bbrick0:
 			if (this.thisp.getbrick(0).isempty())
 				break;
 			localCard = this.thisp.getbrick(0).getCard();
 			break;
-		case 2131099699:
+		case app.dj.R.id.bbrick1:
 			if (this.thisp.getbrick(1).isempty())
 				break;
 			localCard = this.thisp.getbrick(1).getCard();
 			break;
-		case 2131099700:
+		case app.dj.R.id.bbrick2:
 			if (this.thisp.getbrick(2).isempty())
 				break;
 			localCard = this.thisp.getbrick(2).getCard();
 			break;
-		case 2131099701:
+		case app.dj.R.id.blongp:
 			localCard = this.thisp.getlong().poptopcard();
 			break;
-		case 2131099703:
+		case app.dj.R.id.bshortp:
 			localCard = this.thisp.getshort().poptop();
-		case 2131099702:
 		}
 		int i = 0;
+
+		// handle when second = piles
 		switch (secondClick.getId()) {
-		default:
-			i = 0;
-		case 2131099698:
-		case 2131099699:
-		case 2131099700:
-		case 2131099701:
+		case app.dj.R.id.bbrick0:
+			if (!this.thisp.getbrick(0).isempty())
+				return;
+			this.thisp.addtobrick(0, localCard);
+			secondClick.setBackgroundColor(myColor(localCard.getsuit()));
+			((Button) findViewById(app.dj.R.id.bbrick0)).setText(Integer
+					.toString(localCard.getvalue()));
+			resetfirstclick(firstClick);
+			return;
+		case app.dj.R.id.bbrick1:
+			if (!this.thisp.getbrick(1).isempty())
+				return;
+			this.thisp.addtobrick(1, localCard);
+			secondClick.setBackgroundColor(myColor(localCard.getsuit()));
+			((Button) findViewById(app.dj.R.id.bbrick1)).setText(Integer
+					.toString(localCard.getvalue()));
+			resetfirstclick(firstClick);
+			return;
+		case app.dj.R.id.bbrick2:
+			if (!this.thisp.getbrick(2).isempty())
+				return;
+			this.thisp.addtobrick(2, localCard);
+			secondClick.setBackgroundColor(myColor(localCard.getsuit()));
+			((Button) findViewById(app.dj.R.id.bbrick2)).setText(Integer
+					.toString(localCard.getvalue()));
+			resetfirstclick(firstClick);
+			return;
+		case app.dj.R.id.blongp:
+			if (firstClick.getId() != app.dj.R.id.blongp)
+				return;
+			this.thisp.addtolong(localCard);
+			this.thisp.getlong().slide();
+			this.longp.setText(Integer.toString(this.thisp.getlong()
+					.gettopvalue()));
+			this.longp.setBackgroundColor(myColor(this.thisp.getlong()
+					.gettopcolor()));
+			this.longp.setTextSize(this.textsize);
+			resetfirstclick(firstClick);
+			return;
+		case app.dj.R.id.bshortp:
+			if (this.thisp.getshort().getSize() == 0)
+				endGame();
+			return;
+
 		}
+
 		while (i < this.piles.length) {
 			int j = 0;
 			while (j < this.piles[0].length) {
@@ -201,10 +249,18 @@ public class Game extends Activity implements OnClickListener {
 					j++;
 					continue;
 				}
-				if (1 + this.piles[i][j].gettopvalue() != localCard.getvalue())
+				if (this.piles[i][j].gettopvalue() != 0
+						&& this.piles[i][j].getcolor() != localCard.getsuit()) {
 					return;
+				}
+				if (1 + this.piles[i][j].gettopvalue() != localCard.getvalue()) {
+					// TODO reset first
+					return;
+				}
+
 				this.piles[i][j].add(localCard);
-				this.bpiles[i][j].setText(this.piles[i][j].gettopvalue());
+				this.bpiles[i][j].setText(Integer.toString(this.piles[i][j]
+						.gettopvalue()));
 				this.bpiles[i][j].setBackgroundColor(myColor(this.piles[i][j]
 						.getcolor()));
 				resetfirstclick(firstClick);
@@ -213,77 +269,52 @@ public class Game extends Activity implements OnClickListener {
 				return;
 			}
 			i++;
-
-			if (!this.thisp.getbrick(0).isempty())
-				break;
-			this.thisp.addtobrick(0, localCard);
-			secondClick.setBackgroundColor(myColor(localCard.getsuit()));
-			((Button) findViewById(2131099698)).setText(localCard.getvalue());
-			resetfirstclick(firstClick);
-
-			if (!this.thisp.getbrick(1).isempty())
-				break;
-			this.thisp.addtobrick(1, localCard);
-			secondClick.setBackgroundColor(myColor(localCard.getsuit()));
-			((Button) findViewById(2131099699)).setText(localCard.getvalue());
-			resetfirstclick(firstClick);
-
-			if (!this.thisp.getbrick(2).isempty())
-				break;
-			this.thisp.addtobrick(2, localCard);
-			secondClick.setBackgroundColor(myColor(localCard.getsuit()));
-			((Button) findViewById(2131099700)).setText(localCard.getvalue());
-			resetfirstclick(firstClick);
-
-			if (firstClick.getId() != 2131099701)
-				break;
-			this.thisp.addtolong(localCard);
-			this.thisp.getlong().slide();
-			this.longp.setText(this.thisp.getlong().gettopvalue());
-			this.longp.setBackgroundColor(myColor(this.thisp.getlong()
-					.gettopcolor()));
-			this.longp.setTextSize(this.textsize);
 		}
+
 	}
 
-	private void resetfirstclick(View paramView) {
+	private synchronized void resetfirstclick(View paramView) {
 		switch (paramView.getId()) {
-		case 2131099698:
+		case app.dj.R.id.bbrick0:
 			this.brick0.setText("");
 			this.brick0.setBackgroundColor(-1);
 			this.thisp.getbrick(0).remove();
 			this.brick0.setTextSize(this.textsize);
 			break;
-		case 2131099699:
+		case app.dj.R.id.bbrick1:
 			this.brick1.setText("");
 			this.brick1.setBackgroundColor(-1);
 			this.thisp.getbrick(1).remove();
 			this.brick1.setTextSize(this.textsize);
 			break;
-		case 2131099700:
+		case app.dj.R.id.bbrick2:
 			this.brick2.setText("");
 			this.brick2.setBackgroundColor(-1);
 			this.thisp.getbrick(2).remove();
 			this.brick2.setTextSize(this.textsize);
 			break;
-		case 2131099701:
+		case app.dj.R.id.blongp:
 			this.longp.setBackgroundColor(myColor(this.thisp.getlong()
 					.gettopcolor()));
-			this.longp.setText(this.thisp.getlong().gettopvalue());
+			this.longp.setText(Integer.toString(this.thisp.getlong()
+					.gettopvalue()));
 			this.longp.setTextSize(this.textsize);
+
 			break;
-		case 2131099703:
+		case app.dj.R.id.bshortp:
 			if (this.thisp.getshort().getSize() == 0) {
 				this.shortp.setBackgroundColor(Color.rgb(207, 207, 207));
 				this.shortp.setText("BLITZ IT!");
 			} else {
 				this.shortp.setBackgroundColor(myColor(this.thisp.getshort()
 						.peektop().getsuit()));
-				this.shortp.setText(this.thisp.getshort().peektop().getvalue());
+				this.shortp.setText(Integer.toString(this.thisp.getshort()
+						.peektop().getvalue()));
 				this.shortp.setTextSize(this.textsize);
 			}
-		case 2131099702:
 		}
+
+		this.firstclicked = null;
 	}
 
 	private void setGame() {
@@ -297,11 +328,16 @@ public class Game extends Activity implements OnClickListener {
 				.gettopcolor()));
 		this.shortp.setBackgroundColor(myColor(this.thisp.getshort().peektop()
 				.getsuit()));
-		this.brick0.setText(this.thisp.getbrick(0).getvalue());
-		this.brick1.setText(this.thisp.getbrick(1).getvalue());
-		this.brick2.setText(this.thisp.getbrick(2).getvalue());
-		this.longp.setText(this.thisp.getlong().gettopvalue());
-		this.shortp.setText(this.thisp.getshort().peektop().getvalue());
+		this.brick0
+				.setText(Integer.toString(this.thisp.getbrick(0).getvalue()));
+		this.brick1
+				.setText(Integer.toString(this.thisp.getbrick(1).getvalue()));
+		this.brick2
+				.setText(Integer.toString(this.thisp.getbrick(2).getvalue()));
+		this.longp
+				.setText(Integer.toString(this.thisp.getlong().gettopvalue()));
+		this.shortp.setText(Integer.toString(this.thisp.getshort().peektop()
+				.getvalue()));
 		for (int i = 0; i < this.piles.length; i++)
 			for (int j = 0; j < this.piles[0].length; j++) {
 				this.piles[i][j] = new Gamepiles();
@@ -310,12 +346,11 @@ public class Game extends Activity implements OnClickListener {
 			}
 	}
 
-	public void endGame() {
+	public synchronized void endGame() {
 		for (int i = 0; i < -1 + this.numplayaz; i++) {
 			this.ai[i].zerolevel();
 			this.ai[i].endGame();
-			while (this.tai[i].isAlive())
-				;
+			//while (this.tai[i].isAlive());
 		}
 		startActivity(new Intent("app.dj.GAMESTATS"));
 	}
@@ -332,46 +367,39 @@ public class Game extends Activity implements OnClickListener {
 		boolean bool = false;
 		if (gameend())
 			endGame();
-		if ((paramView.getId() == 2131099703)
+		if ((paramView.getId() == app.dj.R.id.bshortp)
 				&& (this.thisp.getshort().getSize() == 0))
 			endGame();
-		if (!this.firstclick.booleanValue()) {
+
+		if (!firstclick) {// secondclick
 			onsecondclick(this.firstclicked, paramView);
-			if (!this.firstclick.booleanValue())
-				bool = true;
-			this.firstclick = Boolean.valueOf(bool);
-		} else if (paramView.getId() != 2131099698) {
-			int j;
-			if (paramView.getId() != 2131099699)
-				j = 0;
-			else
-				j = 1;
-			int i;
-			if (paramView.getId() != 2131099700)
-				i = 0;
-			else
-				i = 1;
-			if (((j | i) == 0) && (paramView.getId() != 2131099701)
-					&& (paramView.getId() != 2131099703))
-				;
-		} else {
-			this.firstclicked = ((Button) paramView);
-			this.firstclicked.setTextSize(2 * this.textsize);
-			if (!this.firstclick.booleanValue())
-				bool = true;
-			this.firstclick = Boolean.valueOf(bool);
+			bool = !firstclick;
+		} else {// first click
+			if (paramView.getId() == (app.dj.R.id.bbrick0)
+					|| paramView.getId() == (app.dj.R.id.bbrick1)
+					|| paramView.getId() == (app.dj.R.id.bbrick2)
+					|| paramView.getId() == (app.dj.R.id.bshortp)
+					|| paramView.getId() == (app.dj.R.id.blongp)) {
+				this.firstclicked = ((Button) paramView);
+				this.firstclicked.setTextSize(2 * this.textsize);
+				bool = !firstclick;
+			} else {
+				// do nothing
+			}
 		}
+		this.firstclick = bool;
 	}
 
 	public void onCreate(Bundle paramBundle) {
+
 		this.pm = ((PowerManager) getSystemService("power"));
 		this.wl = this.pm.newWakeLock(6, "My Tag");
 		this.numplayaz = ((MyReferences) getApplication()).getNumplayers();
 		this.ailvl = ((MyReferences) getApplication()).getLevel();
 		this.gameover = false;
 		super.onCreate(paramBundle);
-		setContentView(2130903042);
-		this.firstclick = Boolean.valueOf(true);
+		setContentView(app.dj.R.layout.game);
+		this.firstclick = true;
 		makegamepiles();
 		linkonclick();
 		creatOponents();
@@ -426,16 +454,21 @@ public class Game extends Activity implements OnClickListener {
 								Game.this.shortp.setBackgroundColor(Game
 										.myColor(Game.this.thisp.getshort()
 												.peektop().getsuit()));
-								Game.this.brick0.setText(Game.this.thisp
-										.getbrick(0).getvalue());
-								Game.this.brick1.setText(Game.this.thisp
-										.getbrick(1).getvalue());
-								Game.this.brick2.setText(Game.this.thisp
-										.getbrick(2).getvalue());
-								Game.this.longp.setText(Game.this.thisp
-										.getlong().gettopvalue());
-								Game.this.shortp.setText(Game.this.thisp
-										.getshort().peektop().getvalue());
+								Game.this.brick0.setText(Integer
+										.toString(Game.this.thisp.getbrick(0)
+												.getvalue()));
+								Game.this.brick1.setText(Integer
+										.toString(Game.this.thisp.getbrick(1)
+												.getvalue()));
+								Game.this.brick2.setText(Integer
+										.toString(Game.this.thisp.getbrick(2)
+												.getvalue()));
+								Game.this.longp.setText(Integer
+										.toString(Game.this.thisp.getlong()
+												.gettopvalue()));
+								Game.this.shortp.setText(Integer
+										.toString(Game.this.thisp.getshort()
+												.peektop().getvalue()));
 							}
 						})
 				.setNegativeButton("KEEP BEATING THE AI!",
@@ -458,7 +491,8 @@ public class Game extends Activity implements OnClickListener {
 		}
 		if ((j == this.ai.length) && (this.thisp.isStuck())) {
 			this.thisp.getlong().slide();
-			this.longp.setText(this.thisp.getlong().gettopvalue());
+			this.longp.setText(Integer.toString(this.thisp.getlong()
+					.gettopvalue()));
 			this.longp.setBackgroundColor(myColor(this.thisp.getlong()
 					.gettopcolor()));
 			this.thisp.setStuck(false);

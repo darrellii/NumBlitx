@@ -5,6 +5,8 @@ import java.util.Queue;
 import java.util.Random;
 import java.util.Stack;
 
+import app.dj.Deck.Card;
+
 public class Deck
 {
   Stack<Card> deck;
@@ -18,8 +20,8 @@ public class Deck
     this.decksize = 52;
     this.max = 12;
     this.suits = 4;
-    this.deck = new Stack();
-    this.discard = new Stack();
+    this.deck = new Stack<Card>();
+    this.discard = new Stack<Card>();
     initalize();
   }
 
@@ -30,9 +32,11 @@ public class Deck
       this.decksize = paramInt1;
       this.max = paramInt2;
       this.suits = paramInt3;
-      this.deck = new Stack();
-      this.discard = new Stack();
+      this.deck = new Stack<Card>();
+      this.discard = new Stack<Card>();
       initalize();
+      shuffle();
+      
       return;
     }
     throw new Error("max value and nuber of suits do not mach up with deck size.");
@@ -40,13 +44,14 @@ public class Deck
 
   private void initalize()
   {
+	
     int j = 0;
     for (int m = 0; m < this.suits; m++)
     {
       int i = 1;
       while (i <= this.max)
       {
-        Stack localStack = this.deck;
+        Stack<Card> localStack = this.deck;
         int k = j + 1;
         localStack.push(new Card(m, i, j));
         i++;
@@ -67,7 +72,7 @@ public class Deck
 
   public Stack<Card> getnum(int paramInt)
   {
-    Stack localStack = new Stack();
+    Stack<Card> localStack = new Stack<Card>();
     for (int i = 0; i < paramInt; i++)
     {
       Card localCard = (Card)this.deck.pop();
@@ -99,7 +104,7 @@ public class Deck
   public String toString()
   {
     String str = "";
-    LinkedList localLinkedList = new LinkedList();
+    LinkedList<Card> localLinkedList = new LinkedList<Card>();
     for (int j = 0; j < this.decksize; j++)
     {
       Card localCard = (Card)this.deck.pop();

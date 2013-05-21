@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout android:orientation="vertical" android:id="@id/color" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:id="@id/coloradview" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/coloradview" android:layout_width="fill_parent" android:layout_height="wrap_content" >
+
+        <SeekBar
+            android:id="@+id/sliderPLRLVL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPLRLVL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Player Lvl: 1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <TextView android:textAppearance="?android:textAppearanceLarge" android:gravity="center" android:id="@id/tvchose" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="Choose a Team" android:layout_weight="75.0" />
     <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="25.0">
         <Button android:id="@id/byellow" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="Yellow" android:layout_weight="25.0" />

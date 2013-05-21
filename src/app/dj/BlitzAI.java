@@ -1,6 +1,5 @@
 package app.dj;
 
-import android.widget.Button;
 import java.util.Random;
 
 public class BlitzAI implements Runnable {
@@ -24,6 +23,9 @@ public class BlitzAI implements Runnable {
 	}
 
 	private boolean checkBricks() {
+		if(gameover){
+			return false;
+		}
 		int i = 0;
 		while (i < 3) {
 			if (!checkPiles(this.thisp.getbrick(i).getCard())) {
@@ -43,6 +45,9 @@ public class BlitzAI implements Runnable {
 	}
 
 	private boolean checkLong() {
+		if(gameover){
+			return false;
+		}
 		int i;
 		if (!checkPiles(this.thisp.getlong().peektopcard())) {
 			this.thisp.getlong().slide();
@@ -55,6 +60,9 @@ public class BlitzAI implements Runnable {
 	}
 
 	private boolean checkPiles(Deck.Card paramCard) {
+		if(gameover){
+			return false;
+		}
 		int k = 1;
 		int j = 0;
 		while (true) {
@@ -71,13 +79,15 @@ public class BlitzAI implements Runnable {
 					}
 					this.piles[j][i].add(paramCard);
 					play(j, i, paramCard);
-					break;
+					return k==1;
 				}
 				j++;
 				continue;
 			}
 			k = 0;
+			break;
 		}
+		return k==1;
 	}
 
 	private boolean checkShort() {
@@ -92,11 +102,14 @@ public class BlitzAI implements Runnable {
 		return i == 1;
 	}
 
-	private void play(final int i, final int j, final Deck.Card c) {
+	private synchronized void play(final int i, final int j, final Deck.Card c) {
+		if(gameover){
+			return;
+		}
 		this.slides = 0;
 		this.game.getButtonMap()[i][j].post(new Runnable() {
 			public void run() {
-				BlitzAI.this.game.getButtonMap()[i][j].setText(c.getvalue());
+				BlitzAI.this.game.getButtonMap()[i][j].setText(Integer.toString(c.getvalue()));
 				BlitzAI.this.game.getButtonMap()[i][j].setBackgroundColor(Game
 						.myColor(c.getsuit()));
 				BlitzAI.this.gameover = Boolean.valueOf(BlitzAI.this.thisp
@@ -108,7 +121,7 @@ public class BlitzAI implements Runnable {
 			}
 		});
 		try {
-			Thread.sleep(1000 * (1 + new Random().nextInt(this.lvl)));
+			Thread.sleep(1000 * this.lvl);
 			return;
 		} catch (InterruptedException localInterruptedException) {
 			while (true)
@@ -156,11 +169,11 @@ public class BlitzAI implements Runnable {
 	}
 
 	public void run() {
-		while (true) {
+		while (!this.gameover.booleanValue()) {
 			if (this.gameover.booleanValue())
 				return;
 			try {
-				Thread.sleep(1000 * (1 + new Random().nextInt(this.lvl)));
+				Thread.sleep(1000 * this.lvl);
 				if (checkShort())
 					this.thisp.scorepp();
 
