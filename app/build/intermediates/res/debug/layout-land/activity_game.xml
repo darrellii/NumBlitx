@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_player2"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="75.0"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="50.0"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_200"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_201"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_202"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_203"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="50.0"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_210"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_b211"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_212"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_213"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_player3"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="75.0"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="33.0"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/button_300"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_301"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_302"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_303"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="33.0"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/button_310"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_311"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_312"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_313"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="33.0"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/button_320"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_321"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_322"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+
+            <Button
+                android:id="@+id/button_323"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="25.0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_player4"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="75.0"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="33.0"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/button_400"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_401"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_402"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_403"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_404"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="33.0"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/button_410"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_411"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_412"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_413"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_414"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="33.0"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/button_420"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_421"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_422"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_423"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+
+            <Button
+                android:id="@+id/button_424"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="20.0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/LLtvadds"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@id/tvgamebrick"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="60.0"
+            android:text="3 Brick Piles" />
+
+        <TextView
+            android:id="@id/tvgamelong"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="20.0"
+            android:text="Long Pile" />
+
+        <TextView
+            android:id="@id/tvgameshort"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="20.0"
+            android:text="Short Pile" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_player_piles"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="25.0"
+        android:background="#ffffffff">
+
+        <Button
+            android:id="@+id/button_brick0"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="20.0" />
+
+        <Button
+            android:id="@+id/button_brick1"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="20.0" />
+
+        <Button
+            android:id="@+id/button_brick2"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="20.0" />
+
+        <LinearLayout
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="20.0"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_longp"
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dip"
+                android:layout_weight="100.0" />
+
+            <Button
+                android:id="@+id/button_stuck"
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dip"
+                android:layout_weight="20.0"
+                android:text="Stuck"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_shortp"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="20.0" />
+    </LinearLayout>
+</LinearLayout><!-- From: file:/Users/johnshelley/Developer/Android/NumBlitx-gradle/app/src/main/res/layout-land/activity_game.xml -->

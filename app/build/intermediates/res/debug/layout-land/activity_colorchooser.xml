@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/color"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@id/coloradview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <SeekBar
+            android:id="@+id/seek_color_plevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_color_plevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Player Lvl: 1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/text_color_title"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="75.0"
+        android:gravity="center"
+        android:text="Choose a Team"
+        android:textAppearance="?android:textAppearanceLarge" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="25.0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_color_yellow"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="25.0"
+            android:text="Yellow" />
+
+        <Button
+            android:id="@+id/button_color_purple"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="25.0"
+            android:text="Purple" />
+
+        <Button
+            android:id="@+id/button_color_orange"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="25.0"
+            android:text="Orange" />
+
+        <Button
+            android:id="@+id/button_color_green"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="25.0"
+            android:text="Green" />
+    </LinearLayout>
+</LinearLayout><!-- From: file:/Users/johnshelley/Developer/Android/NumBlitx-gradle/app/src/main/res/layout-land/activity_colorchooser.xml -->

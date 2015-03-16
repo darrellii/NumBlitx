@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="36.0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_main_start1"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="50.0"
+            android:text="NumBliz!" />
+
+        <Button
+            android:id="@+id/button_main_multi"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="50.0"
+            android:text="NumBliz!" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/mainadspace"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="18.0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_main_rulez"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Rulez" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="36.0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_main_single"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="50.0"
+            android:text="NumBliz!" />
+
+        <Button
+            android:id="@+id/button_main_start2"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="50.0"
+            android:text="NumBliz!" />
+    </LinearLayout>
+</LinearLayout>

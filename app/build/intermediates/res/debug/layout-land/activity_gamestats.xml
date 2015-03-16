@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="90.0"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_stats_player0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_stats_player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_stats_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_stats_player3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_stats_win"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_stat_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_weight="15.0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_stat_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Done" />
+
+        <TextView
+            android:id="@+id/text_stat_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+</LinearLayout><!-- From: file:/Users/johnshelley/Developer/Android/NumBlitx-gradle/app/src/main/res/layout-land/activity_gamestats.xml -->

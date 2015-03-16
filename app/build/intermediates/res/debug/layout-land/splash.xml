@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/splashscreen"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/splash_bydj"
+    android:orientation="vertical" /><!-- From: file:/Users/johnshelley/Developer/Android/NumBlitx-gradle/app/src/main/res/layout-land/splash.xml -->
